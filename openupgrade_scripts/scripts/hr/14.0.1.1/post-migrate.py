@@ -25,9 +25,12 @@ def update_new_private_admin_partner(env):
             "name": public_partner.name,
             "company_id": public_partner.company_id,
             "email": public_partner.email,
-            "image_1920": public_partner.image_1920,
         }
     )
+    try:
+        private_partner.image_1920 = public_partner.image_1920
+    except Exception:
+        ...
 
 
 @openupgrade.migrate()
